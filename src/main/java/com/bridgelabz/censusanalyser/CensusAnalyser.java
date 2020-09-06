@@ -39,11 +39,11 @@ public class CensusAnalyser {
             csvToBeanBuilder.withType(IndiaStateCodeCSV.class);
             csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
             CsvToBean<IndiaStateCodeCSV> csvToBean = csvToBeanBuilder.build();
-            Iterator<IndiaStateCodeCSV> censusCSVIterator = csvToBean.iterator();
+            Iterator<IndiaStateCodeCSV> stateCSVIterator = csvToBean.iterator();
             int numOfEntries = 0;
-            while (censusCSVIterator.hasNext()) {
+            while (stateCSVIterator.hasNext()) {
                 numOfEntries++;
-                IndiaStateCodeCSV censusData = censusCSVIterator.next();
+                IndiaStateCodeCSV censusData = stateCSVIterator.next();
             }
             return numOfEntries;
         } catch (IOException e) {
