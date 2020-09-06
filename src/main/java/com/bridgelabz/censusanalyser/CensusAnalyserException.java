@@ -1,11 +1,11 @@
 package com.bridgelabz.censusanalyser;
 
 public class CensusAnalyserException extends Exception {
-    enum ExceptionType {
+    public enum ExceptionType {
         CENSUS_FILE_PROBLEM
     }
 
-    ExceptionType type;
+   public  ExceptionType type;
 
     public CensusAnalyserException(String message, ExceptionType type) {
         super(message);
