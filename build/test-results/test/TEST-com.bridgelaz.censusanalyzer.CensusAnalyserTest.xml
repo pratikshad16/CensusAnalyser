@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bridgelaz.censusanalyzer.CensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-06T11:11:40" hostname="LAPTOP-CKOAUDG5" time="0.011">
+  <properties/>
+  <testcase name="givenIndianCensusCsvFile_ReturnCorrectRecords" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
