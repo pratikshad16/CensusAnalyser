@@ -17,18 +17,22 @@ public class CensusAnalyser {
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(),e.type.name());
         }
     }
 
     public int loadIndiaStateData(String csvFilePath) throws CensusAnalyserException {
-            try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
-                ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
-                Iterator<IndiaStateCodeCSV> stateCSVIterator = csvBuilder.
-                                                        getCSVFileIterator(reader, IndiaStateCodeCSV.class);
+        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            Iterator<IndiaStateCodeCSV> stateCSVIterator = csvBuilder.
+                    getCSVFileIterator(reader, IndiaStateCodeCSV.class);
             return this.getCount(stateCSVIterator);
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(), e.type.name());
         }
     }
 
