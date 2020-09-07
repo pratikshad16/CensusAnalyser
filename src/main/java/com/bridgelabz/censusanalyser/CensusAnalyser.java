@@ -8,6 +8,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
 
@@ -20,11 +21,8 @@ public class CensusAnalyser {
             CsvToBean<IndiaCensusCSV> csvToBean = csvToBeanBuilder.build();
             Iterator<IndiaCensusCSV> censusCSVIterator = csvToBean.iterator();
             int numOfEntries = 0;
-            while (censusCSVIterator.hasNext()) {
-                numOfEntries++;
-                IndiaCensusCSV censusData = censusCSVIterator.next();
-            }
-            return numOfEntries;
+            Iterable<IndiaCensusCSV> csvIterable = () -> censusCSVIterator;
+            return (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
@@ -41,12 +39,9 @@ public class CensusAnalyser {
             csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
             CsvToBean<IndiaStateCodeCSV> csvToBean = csvToBeanBuilder.build();
             Iterator<IndiaStateCodeCSV> stateCSVIterator = csvToBean.iterator();
-            int numOfEntries = 0;
-            while (stateCSVIterator.hasNext()) {
-                numOfEntries++;
-                IndiaStateCodeCSV censusData = stateCSVIterator.next();
-            }
-            return numOfEntries;
+           int numOfEntries = 0;
+            Iterable<IndiaStateCodeCSV> csvIterable = () -> stateCSVIterator;
+            return (int) StreamSupport.stream(csvIterable.spliterator(), false).count();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
