@@ -7,15 +7,17 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class CensusAnalyserTest {
-    private static final String INDIA_CENSUS_CSV_FILE_PATH = ".\\src\\test\\resources\\IndiaStateCensusData.csv";
-    private static final String WRONG_CSV_FILE_PATH = ".\\src\\main\\resources\\IndiaStateCensusData.csv";
+    private static final String INDIA_CENSUS_CSV_FILE_PATH = ".\\src\\test\\resources\\IndiaStateCensusData.CSV";
+    private static final String WRONG_CSV_FILE_PATH = ".\\src\\main\\resources\\IndiaStateCensusData.CSV";
     private static final String WRONG_CSV_FILE_TYPE_PATH = ".\\src\\test\\resources\\file.txt";
-    private static final String WRONG_DELIMITER_FILE_PATH = ".\\src\\test\\resources\\WrongDelimiter.csv";
-    private static final String CSV_FILE_WITH_WRONG_HEADER_PATH = ".\\src\\test\\resources\\InvalidHeader.csv";
-    private static final String INDIA_STATE_CODE_CSV_FILE_PATH = ".\\src\\test\\resources\\IndiaStateCode.csv";
+    private static final String WRONG_DELIMITER_FILE_PATH = ".\\src\\test\\resources\\WrongDelimiter.CSV";
+    private static final String CSV_FILE_WITH_WRONG_HEADER_PATH = ".\\src\\test\\resources\\InvalidHeader.CSV";
+    private static final String INDIA_STATE_CODE_CSV_FILE_PATH = ".\\src\\test\\resources\\IndiaStateCode.CSV";
     private static final String INDIA_STATE_CODE_WRONG_CSV_FILE_PATH = ".\\src\\main\\resources\\IndiaStatCode.csv";
     private static final String INDIA_STATE_CODE_WRONG_DELIMITER_FILE_PATH =
-                                                ".\\src\\test\\resources\\IndiaStateCodeWithWrongDelimiter.csv";
+                                                ".\\src\\test\\resources\\IndiaStateCodeWithWrongDelimiter.CSV";
+    private static final String INDIA_STATE_CODE_WRONG_HEADER_FILE_PATH =
+                                                    ".\\src\\test\\resources\\IndiaStateCodeWithWrongHeader.CSV";
 
     @Test
     public void givenIndianCensusCsvFile_WhenCheckRecords_ReturnCorrectRecords() {
@@ -112,6 +114,17 @@ public class CensusAnalyserTest {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(CensusAnalyserException.class);
             censusAnalyser.loadIndiaStateData(INDIA_STATE_CODE_WRONG_DELIMITER_FILE_PATH);
+        } catch (CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.FILE_TYPE_OR_DELIMITER_OR_HEADER_PROBLEM, e.type);
+        }
+    }
+    @Test
+    public void givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException() {
+        try {
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(CensusAnalyserException.class);
+            censusAnalyser.loadIndiaStateData(INDIA_STATE_CODE_WRONG_HEADER_FILE_PATH);
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.FILE_TYPE_OR_DELIMITER_OR_HEADER_PROBLEM, e.type);
         }
