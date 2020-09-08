@@ -14,5 +14,6 @@ dependencies {
 }
 dependencies {
     compile "com.opencsv:opencsv:4.0"
+    compile(files("./lib/CensusAnalyserSecond.jar"))
 }
 
