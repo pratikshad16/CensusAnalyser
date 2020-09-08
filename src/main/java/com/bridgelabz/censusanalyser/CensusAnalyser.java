@@ -1,4 +1,5 @@
 package com.bridgelabz.censusanalyser;
+
 import com.bridegelabz.censusanalysersecond.CSVBuilderException;
 import com.bridegelabz.censusanalysersecond.CSVBuilderFactory;
 import com.bridegelabz.censusanalysersecond.ICSVBuilder;
@@ -16,11 +17,11 @@ import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
     List<IndiaCensusCSV> censusCSVList = null;
+
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
             ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
             censusCSVList = csvBuilder.getCSVFileList(reader, IndiaCensusCSV.class);
-
             return censusCSVList.size();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
@@ -56,7 +57,6 @@ public class CensusAnalyser {
         this.sort(censusComparator);
         String sortedStateCensusJson = new Gson().toJson(censusCSVList);
         return sortedStateCensusJson;
-
     }
 
     private void sort(Comparator<IndiaCensusCSV> censusComparator) {
