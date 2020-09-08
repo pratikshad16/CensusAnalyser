@@ -2,6 +2,8 @@ package com.bridgelaz.censusanalyzer;
 
 import com.bridgelabz.censusanalyser.CensusAnalyser;
 import com.bridgelabz.censusanalyser.CensusAnalyserException;
+import com.bridgelabz.censusanalyser.IndiaCensusCSV;
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -125,6 +127,19 @@ public class CensusAnalyserTest {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(CensusAnalyserException.class);
             censusAnalyser.loadIndiaStateData(INDIA_STATE_CODE_WRONG_HEADER_FILE_PATH);
+        } catch (CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.FILE_TYPE_OR_DELIMITER_OR_HEADER_PROBLEM, e.type);
+        }
+    }
+
+    @Test
+    public void givenIndianCensusData_whenSortedByState_shouldReturnSortedResult() {
+        try {
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            censusAnalyser.loadIndiaCensusData(INDIA_CENSUS_CSV_FILE_PATH);
+            String sortedCensusData = censusAnalyser.getStateWiseSortedCensusData();
+            IndiaCensusCSV[] censusCSV = new Gson().fromJson(sortedCensusData, IndiaCensusCSV[].class);
+            Assert.assertEquals("Andhra Pradesh",censusCSV[0].state);
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.FILE_TYPE_OR_DELIMITER_OR_HEADER_PROBLEM, e.type);
         }
