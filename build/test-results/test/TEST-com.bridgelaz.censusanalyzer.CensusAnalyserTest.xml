@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelaz.censusanalyzer.CensusAnalyserTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2020-09-09T03:38:40" hostname="LAPTOP-CKOAUDG5" time="0.785">
+<testsuite name="com.bridgelaz.censusanalyzer.CensusAnalyserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-09-09T12:13:15" hostname="LAPTOP-CKOAUDG5" time="0.903">
   <properties/>
-  <testcase name="givenIndiaStateCodeData_WithWrongFile_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.026"/>
-  <testcase name="givenIndiaStateCodeData_WithWrongDelimiter_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.128"/>
-  <testcase name="givenIndianCensusCsvFile_WhenCheckRecords_ReturnCorrectRecords" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.232"/>
-  <testcase name="givenIndiaCensusData_WithWrongDelimiter_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.014"/>
-  <testcase name="givenIndiaStateCodeData_WithWrongType_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.005"/>
-  <testcase name="givenIndiaStateCodeData_whenSortedByStateCode_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.186"/>
-  <testcase name="givenIndianStateCodeCsvFile_WhenCheckRecords_ReturnCorrectRecords" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.07"/>
-  <testcase name="givenIndianCensusData_whenSortedByPopulation_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.039"/>
-  <testcase name="givenIndiaCensusData_WithWrongHeader_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.007"/>
+  <testcase name="givenIndiaStateCodeData_WithWrongFile_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.106"/>
+  <testcase name="givenIndiaStateCodeData_WithWrongDelimiter_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.126"/>
+  <testcase name="givenIndianCensusCsvFile_WhenCheckRecords_ReturnCorrectRecords" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.223"/>
+  <testcase name="givenIndiaCensusData_WithWrongDelimiter_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.016"/>
+  <testcase name="givenIndiaStateCodeData_WithWrongType_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.006"/>
+  <testcase name="givenIndiaStateCodeData_whenSortedByStateCode_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.167"/>
+  <testcase name="givenIndianCensusData_whenSortedByDensity_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.051"/>
+  <testcase name="givenIndianStateCodeCsvFile_WhenCheckRecords_ReturnCorrectRecords" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.021"/>
+  <testcase name="givenIndianCensusData_whenSortedByPopulation_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.031"/>
+  <testcase name="givenIndiaCensusData_WithWrongHeader_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.042"/>
   <testcase name="givenIndiaCensusData_WithWrongFile_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.001"/>
-  <testcase name="givenIndianCensusData_whenSortedByState_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.046"/>
-  <testcase name="givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.01"/>
-  <testcase name="givenIndiaCensusData_WithWrongType_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.006"/>
+  <testcase name="givenIndianCensusData_whenSortedByState_shouldReturnSortedResult" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.081"/>
+  <testcase name="givenIndiaStateCodeData_WithWrongHeader_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.02"/>
+  <testcase name="givenIndiaCensusData_WithWrongType_ShouldThrowException" classname="com.bridgelaz.censusanalyzer.CensusAnalyserTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
