@@ -21,7 +21,7 @@ public class CensusAnalyserTest {
             ".\\src\\test\\resources\\IndiaStateCodeWithWrongDelimiter.CSV";
     private static final String INDIA_STATE_CODE_WRONG_HEADER_FILE_PATH =
             ".\\src\\test\\resources\\IndiaStateCodeWithWrongHeader.CSV";
-    private static final String US_CENSUS_CSV_FILE_PATH = ".\\src\\test\\resources\\USCensusData.CSV";
+    private static final String US_CENSUS_CSV_FILE_PATH = "C:\\Users\\prana\\Desktop\\CensusAnalyser\\src\\test\\resources\\USCensusData.CSV";
 
     @Test
     public void givenIndianCensusCsvFile_WhenCheckRecords_ReturnCorrectRecords() {
@@ -204,7 +204,7 @@ public class CensusAnalyserTest {
         }
     }
 
- /**   @Test
+   @Test
     public void givenUSCensusData_whenCheckRecords_shouldReturnCorrectRecords() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
@@ -213,5 +213,4 @@ public class CensusAnalyserTest {
         } catch (CensusAnalyserException e) {
         }
     }
- */
 }

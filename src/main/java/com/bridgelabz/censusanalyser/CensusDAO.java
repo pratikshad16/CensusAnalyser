@@ -22,9 +22,9 @@ public class CensusDAO {
     public CensusDAO(USCensusCSV usCensusCSV) {
         state = usCensusCSV.state;
         stateCode = usCensusCSV.stateId;
-        population = usCensusCSV.population;
-        populationDensity = usCensusCSV.populationDensity;
-        totalArea = usCensusCSV.totalArea;
+//        population = usCensusCSV.population;
+//        populationDensity = usCensusCSV.populationDensity;
+//        totalArea = usCensusCSV.totalArea;
 
     }
 }

@@ -18,6 +18,7 @@ public class CensusAnalyser {
     HashMap<String, CensusDAO> map ;
 
     public CensusAnalyser() {
+
         this.map = new HashMap<>();
     }
 
@@ -45,6 +46,21 @@ public class CensusAnalyser {
             StreamSupport.stream(censusCSVIterable.spliterator(), false)
                     .forEach(csvStateCode -> map.put(csvStateCode.stateCode, new CensusDAO(csvStateCode)));
 
+            return this.map.size();
+        } catch (IOException e) {
+            throw new CensusAnalyserException(e.getMessage(),
+                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        } catch (CSVBuilderException e) {
+            throw new CensusAnalyserException(e.getMessage(), e.type.name());
+        }
+    }
+    public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
+        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            Iterator<USCensusCSV> csvFileIterator = csvBuilder.getCSVFileIterator(reader, USCensusCSV.class);
+            Iterable<USCensusCSV> censusCSVIterable = () -> csvFileIterator;
+            StreamSupport.stream(censusCSVIterable.spliterator(), false)
+                    .forEach(csvState -> this.map.put(csvState.state, new CensusDAO(csvState)));
             return this.map.size();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
