@@ -7,21 +7,22 @@ public class USCensusCSV {
     public String state;
     @CsvBindByName(column = "State Id")
     public String stateId;
-//    @CsvBindByName(column = "StateId")
-//    public int population;
-//    @CsvBindByName(column = "Total Area")
-//    public double totalArea;
-//    @CsvBindByName(column = "Population Density")
-//    public int populationDensity;
+   @CsvBindByName(column = "Population")
+    public int population;
+   @CsvBindByName(column = "Total area")
+    public double totalArea;
+    @CsvBindByName(column = "Population Density")
+    public double populationDensity;
 
     @Override
     public String toString() {
         return "USCensusCSV{" +
-                "state='" + state + '\'' +
-                ", state Id='" + stateId + '\'' +
-//                ", population=" + population +
-//                ", totalArea=" + totalArea +
-//                ", populationDensity=" + populationDensity +
+                "State='" + state + '\'' +
+                ",State Id='" + stateId + '\'' +
+              ", Population=" + population +
+              ", Total area=" + totalArea +
+                ", Population Density=" + populationDensity +
                 '}';
     }
 }
+ //   State Id,State,Population,Housing units,Total area,Water area,Land area,Population Density,Housing Density
