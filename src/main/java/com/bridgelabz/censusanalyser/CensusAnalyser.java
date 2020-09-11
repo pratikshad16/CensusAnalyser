@@ -135,12 +135,32 @@ public class CensusAnalyser {
         String sortedStateCensusJson = new Gson().toJson(censusDAOList);
         return sortedStateCensusJson;
     }
+    public String getAreaWiseSortedUSCensusData() throws CensusAnalyserException {
+        if (map == null || map.size() == 0) {
+            throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<CensusDAO> censusComparator = Comparator.comparing(census -> census.total_Area);
+        List<CensusDAO> censusDAOList = map.values().stream().collect(Collectors.toList());
+        this.sort(censusComparator.reversed(), censusDAOList);
+        String sortedStateCensusJson = new Gson().toJson(censusDAOList);
+        return sortedStateCensusJson;
+    }
+    public String getPopulationDensityWiseSortedUSCensusData() throws CensusAnalyserException {
+        if (map == null || map.size() == 0) {
+            throw new CensusAnalyserException("No Census Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        }
+        Comparator<CensusDAO> censusComparator = Comparator.comparing(census -> census.population_Density);
+        List<CensusDAO> censusDAOList = map.values().stream().collect(Collectors.toList());
+        this.sort(censusComparator.reversed(), censusDAOList);
+        String sortedStateCensusJson = new Gson().toJson(censusDAOList);
+        return sortedStateCensusJson;
+    }
 
-    private static <E> List<E> sort(Comparator<E> censusComparator, List<E> list) {
+    private static <CensusDAO> List<CensusDAO> sort(Comparator<CensusDAO> censusComparator, List<CensusDAO> list) {
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = 0; j < list.size() - i - 1; j++) {
-                E census1 = list.get(j);
-                E census2 = list.get(j + 1);
+                CensusDAO census1 = list.get(j);
+                CensusDAO census2 = list.get(j + 1);
                 if (censusComparator.compare(census1, census2) > 0) {
                     list.set(j, census2);
                     list.set(j + 1, census1);

@@ -3,11 +3,13 @@ package com.bridgelabz.censusanalyser;
 public class CensusDAO {
    public String state;
     public  int population;
-    public double populationDensity;
-    public double totalArea;
+    public double population_Density;
+    public long populationDensity;
+    public long totalArea;
     public String stateName;
     public String stateCode;
-    //public String State;
+    public double total_Area;
+
 
 
     public CensusDAO(IndiaCensusCSV indiaCensusCSV) {
@@ -25,8 +27,8 @@ public class CensusDAO {
         state = usCensusCSV.state;
         stateCode = usCensusCSV.stateId;
        population = usCensusCSV.population;
-       populationDensity = usCensusCSV.populationDensity;
-        totalArea = usCensusCSV.totalArea;
+       population_Density = usCensusCSV.population_Density;
+        total_Area = usCensusCSV.total_Area;
 
     }
 }
