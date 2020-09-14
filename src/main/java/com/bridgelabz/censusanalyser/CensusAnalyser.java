@@ -10,16 +10,16 @@ import java.util.stream.Collectors;
 public class CensusAnalyser {
     Map<String, CensusDAO> censusMap;
     public CensusAnalyser() { }
-    public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
-        censusMap = new CensusLoader().loadCensusData(csvFilePath,IndiaCensusCSV.class);
+    public int loadIndiaCensusData(String... csvFilePath) throws CensusAnalyserException {
+        censusMap = new CensusLoader().loadCensusData(IndiaCensusCSV.class,csvFilePath);
         return censusMap.size();
     }
-    public int loadIndiaStateData(String csvFilePath) throws CensusAnalyserException {
-        censusMap =  new CensusLoader().loadCensusData(csvFilePath,IndiaStateCodeCSV.class);
+    public int loadIndiaStateData(String... csvFilePath) throws CensusAnalyserException {
+        censusMap =  new CensusLoader().loadCensusData(IndiaStateCodeCSV.class,csvFilePath);
         return censusMap.size();
     }
     public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
-        censusMap =  new  CensusLoader().loadCensusData(csvFilePath,USCensusCSV.class);
+        censusMap =  new  CensusLoader().loadCensusData(USCensusCSV.class,csvFilePath);
         return censusMap.size();
     }
 
